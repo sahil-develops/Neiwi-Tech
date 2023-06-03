@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-
+import Benefits from './components/Benefits/Benefits';
+import Footer from './components/Footer/Footer';
+import Navbar from './components/Navbar/Navbar';
+import Webdev from './components/WebDev/Webdev';
+import Home from './Pages/Home';
+import Appdev from './components/WebDev/Appdev'
+import SocialMedia from './components/WebDev/Socialmedia'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+    <div className="App overflow-x-hidden">
+<Navbar />
+      <Routes>
+        <Route path="/social" element={<SocialMedia />} />
+        <Route path="/appdev" element={<Appdev/>} />
+        <Route path="/webdev" element={<Webdev />} />
+      <Route path="/" element={<Home/>} />
+      </Routes>
+
+<Footer/>
+  
     </div>
+    
+    </BrowserRouter>
   );
 }
 
